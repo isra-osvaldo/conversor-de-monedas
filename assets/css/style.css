@@ -22,3 +22,32 @@ body {
     border-bottom: 1px solid #1c4e5c;
     padding: 10px;
 }
+
+.input-monto-clp {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-monto-clp input {
+    border: none;
+    width: 100%;
+    padding: 6px 10px;
+    margin-right: 35px;
+    border-radius: 8px;
+}
+
+.icono-input {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+}
