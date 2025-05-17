@@ -21,7 +21,6 @@ async function getMonedas(moneda) {
 $btnConvertir.addEventListener('click', async () => {
     const selectMoneda = document.getElementById('moneda').value
     const valorActual = await getMonedas(selectMoneda)
-    $resultado.classList.remove('error')
 
     if (isNaN($valorCLP.value) || $valorCLP.value <= 0) {
         $resultado.classList.add('error')
@@ -37,3 +36,7 @@ $btnConvertir.addEventListener('click', async () => {
     $valorCLP.value = ''
 })
 
+$valorCLP.addEventListener('input', () => {
+    $resultado.classList.remove('error')
+    mostrarResultado('')
+})
