@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +7,14 @@
 }
 
 body {
-    font-family: system-ui, sans-serif;
+    font-family: Montserrat, sans-serif;
     background-color: #222;
-    color: #fff
-}
-
-.header {
+    color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
 }
 
 .header h1 {
@@ -21,13 +23,34 @@ body {
     border-top: 1px solid #1c4e5c;
     border-bottom: 1px solid #1c4e5c;
     padding: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #6b757d;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 8px;
+    row-gap: 10px;
+    padding: 30px 0;
+}
+
+.container-form .title-clp {
+    font-weight: 400;
+    font-size: 1.3rem;
 }
 
 .input-monto-clp {
     position: relative;
     display: inline-block;
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
+    margin-top: 10px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -39,9 +62,10 @@ input[type="number"]::-webkit-inner-spin-button {
 .input-monto-clp input {
     border: none;
     width: 100%;
-    padding: 6px 10px;
+    padding: 10px 10px;
     margin-right: 35px;
-    border-radius: 8px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .icono-input {
@@ -50,4 +74,66 @@ input[type="number"]::-webkit-inner-spin-button {
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
+}
+
+.container-selects {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.label-mensaje {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+#moneda {
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.container-selects select {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.container-selects .flecha {
+    position: absolute;
+    color: #222;
+    right: 10px;
+    top: 50%;
+    pointer-events: none;
+}
+
+.convertir-moneda {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-convertir {
+    width: 100%;
+    background-color: #11caf0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-convertir:hover {
+    background-color: #0a9bb1;
 }
