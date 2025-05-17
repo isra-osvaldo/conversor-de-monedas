@@ -13,15 +13,19 @@
 
     <section class="container-form">
         <h2>Pesos CLP</h2>
-        <input type="number" id="monto">
+        <div class="input-monto-clp">
+            <input type="number" id="monto" placeholder="Ingrese monto">
+            <img src="./assets/images/clp.svg" alt="Bandera de Chile" class="icono-input">
+        </div>
 
         <label for="moneda">Moneda a convertir:</label>
         <select name="moneda" id="moneda">
-            <option value="dolar">Dolar</option>
+            <option value="dolar">Dolar </option>
             <option value="euro">Euro</option>
         </select>
 
         <button id="convertir">Convertir</button>
+        <p id="resultado"></p>
     </section>
 
     <script src="./assets/js/app.js"></script>
