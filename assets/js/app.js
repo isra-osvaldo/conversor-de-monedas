@@ -36,9 +36,8 @@ $btnConvertir.addEventListener('click', async () => {
 
     const simbol = selectMoneda === 'dolar' ? 'USD' : '€' 
     mostrarResultado(`Resultado: ${monedaConvertida} ${simbol}`)
-    $valorCLP.value = ''
 
-    renderGrafica(valorMoneda, valorMoneda.codigo)
+    renderGrafica(valorMoneda, selectMoneda) 
 })
 
 $valorCLP.addEventListener('input', () => {
