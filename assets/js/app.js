@@ -19,6 +19,11 @@ async function getMonedas(moneda) {
 }
 
 $btnConvertir.addEventListener('click', async () => {
+    if (isNaN($valorCLP.value) || $valorCLP.value <= 0) {
+        mostrarResultado('Por favor, ingresa un monto válido en CLP') 
+        return
+    }
+
     const selectMoneda = document.getElementById('moneda').value
     const valorActual = await getMonedas(selectMoneda)
 
@@ -28,5 +33,5 @@ $btnConvertir.addEventListener('click', async () => {
     const simbol = selectMoneda === 'dolar' ? 'USD' : '€' 
     mostrarResultado(`Resultado: ${monedaConvertida} ${simbol}`)
     $valorCLP.value = ''
-    })
+})
 

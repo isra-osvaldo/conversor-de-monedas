@@ -137,3 +137,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .btn-convertir:hover {
     background-color: #0a9bb1;
 }
+
+#resultado {
+    text-align: center;
+    font-size: .9rem;
+}
