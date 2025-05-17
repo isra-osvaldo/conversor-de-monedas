@@ -53,6 +53,8 @@ async function convertirMoneda() {
             mostrarResultado('Seleccione una moneda válida')
         }
 
+        $valorCLP.value = ''
+
     })
 }
 
