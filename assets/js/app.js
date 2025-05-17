@@ -10,9 +10,7 @@ async function getMonedas(moneda) {
     try {
         const res = await fetch(`https://mindicador.cl/api/${moneda}`)
         const data = await res.json()        
-        const valorActual = data.serie[0].valor
-        return valorActual
-        
+        return data
     } catch (error) {
         console.error('Error al obtener los datos:', error) 
     }
@@ -20,7 +18,9 @@ async function getMonedas(moneda) {
 
 $btnConvertir.addEventListener('click', async () => {
     const selectMoneda = document.getElementById('moneda').value
-    const valorActual = await getMonedas(selectMoneda)
+    const valorMoneda = await getMonedas(selectMoneda)
+    console.log(valorMoneda)
+    const valorActual = valorMoneda.serie[0].valor
 
     if (isNaN($valorCLP.value) || $valorCLP.value <= 0) {
         $resultado.classList.add('warning')
