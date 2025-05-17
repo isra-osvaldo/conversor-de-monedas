@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Conversor de Monedas - APIs</title>
 </head>
 <body>
@@ -12,20 +13,25 @@
     </header>
 
     <section class="container-form">
-        <h2>Pesos CLP</h2>
+        <h2 class="title-clp">Pesos CLP</h2>
         <div class="input-monto-clp">
             <input type="number" id="monto" placeholder="Ingrese monto">
             <img src="./assets/images/clp.svg" alt="Bandera de Chile" class="icono-input">
         </div>
 
-        <label for="moneda">Moneda a convertir:</label>
-        <select name="moneda" id="moneda">
-            <option value="dolar">Dolar </option>
-            <option value="euro">Euro</option>
-        </select>
+        <div class="container-selects">
+            <label class="label-mensaje" for="moneda">Moneda a convertir:</label>
+            <select name="moneda" id="moneda">
+                <option value="dolar">Dolar </option>
+                <option value="euro">Euro</option>
+            </select>
+            <i class="flecha bi bi-arrow-down-short"></i>
+        </div>
 
-        <button id="convertir">Convertir</button>
-        <p id="resultado"></p>
+        <div class="convertir-moneda">
+            <button id="convertir" class="btn-convertir">Convertir</button>
+            <p id="resultado"></p>
+        </div>
     </section>
 
     <script src="./assets/js/app.js"></script>
