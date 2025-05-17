@@ -12,19 +12,15 @@ async function cargarOpcionesMonedas() {
         
         for (const moneda in data) {
             if (moneda === 'dolar' || moneda === 'euro') {
-               const option = document.createElement('option')
-               option.value = moneda
-
-               option.innerText = (moneda === 'uf') 
-                    ? moneda.toUpperCase()
-                    : moneda.charAt(0).toUpperCase() + moneda.slice(1).toLowerCase()
-                
+                const option = document.createElement('option')
+                option.value = moneda
+                option.innerText = moneda.charAt(0).toUpperCase() + moneda.slice(1).toLowerCase()
                 $selectMoneda.appendChild(option)
             }
         }
     } catch (error) {
         console.error('Error al obtener los datos:', error)
-    }
+    }   
 }
 
 cargarOpcionesMonedas()
