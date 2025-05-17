@@ -23,7 +23,7 @@ $btnConvertir.addEventListener('click', async () => {
     const valorActual = await getMonedas(selectMoneda)
 
     if (isNaN($valorCLP.value) || $valorCLP.value <= 0) {
-        $resultado.classList.add('error')
+        $resultado.classList.add('warning')
         mostrarResultado('Por favor, ingresa un monto válido en CLP') 
         return
     }
@@ -37,6 +37,6 @@ $btnConvertir.addEventListener('click', async () => {
 })
 
 $valorCLP.addEventListener('input', () => {
-    $resultado.classList.remove('error')
+    $resultado.classList.remove('warning')
     mostrarResultado('')
 })

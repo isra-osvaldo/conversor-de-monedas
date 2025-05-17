@@ -143,6 +143,6 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: .9rem;
 }
 
-.error {
-    color: #a20303;
+.warning {
+    color: yellow;
 }
