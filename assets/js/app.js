@@ -7,7 +7,6 @@ function mostrarResultado(mensaje) {
 }
 
 async function getMonedas(moneda) {
-    const selectMoneda = document.getElementById('moneda').value
     try {
         const res = await fetch(`https://mindicador.cl/api/${moneda}`)
         const data = await res.json()        
@@ -22,12 +21,12 @@ async function getMonedas(moneda) {
 $btnConvertir.addEventListener('click', async () => {
     const selectMoneda = document.getElementById('moneda').value
     const valorActual = await getMonedas(selectMoneda)
+
     const montoCLP = Number($valorCLP.value)
     monedaConvertida = (montoCLP / valorActual).toFixed(2)
 
     const simbol = selectMoneda === 'dolar' ? 'USD' : '€' 
     mostrarResultado(`Resultado: ${monedaConvertida} ${simbol}`)
     $valorCLP.value = ''
-
     })
 
