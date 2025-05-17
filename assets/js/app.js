@@ -36,7 +36,6 @@ $btnConvertir.addEventListener('click', async () => {
 
     const simbol = selectMoneda === 'dolar' ? 'USD' : '€' 
     mostrarResultado(`Resultado: ${monedaConvertida} ${simbol}`)
-
     renderGrafica(valorMoneda, selectMoneda) 
 })
 

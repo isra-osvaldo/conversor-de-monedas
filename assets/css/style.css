@@ -17,6 +17,11 @@ body {
 
 }
 
+input:focus,
+select:focus {
+    outline-color: #6b757d;
+}
+
 .header h1 {
     display: inline-block;
     margin-top: 20px;
