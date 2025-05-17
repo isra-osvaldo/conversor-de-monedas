@@ -1,16 +1,41 @@
 const $btnConvertir = document.querySelector('#convertir')
 const $resultado = document.querySelector('#resultado')
 const $valorCLP = (document.getElementById('monto'))
+const $selectMoneda = document.querySelector('#moneda')
 const url = 'https://mindicador.cl/api'
 let chartInstance = null
+
+async function cargarOpcionesMonedas() {
+    try {
+        const res = await fetch(url)
+        data = await res.json()
+        
+        for (const moneda in data) {
+            if (moneda === 'dolar' || moneda === 'euro') {
+               const option = document.createElement('option')
+               option.value = moneda
+
+               option.innerText = (moneda === 'uf') 
+                    ? moneda.toUpperCase()
+                    : moneda.charAt(0).toUpperCase() + moneda.slice(1).toLowerCase()
+                
+                $selectMoneda.appendChild(option)
+            }
+        }
+    } catch (error) {
+        console.error('Error al obtener los datos:', error)
+    }
+}
+
+cargarOpcionesMonedas()
 
 function mostrarResultado(mensaje) {
     $resultado.innerHTML = mensaje
 }
 
-async function getMonedas(moneda) {
+async function getMoneda(moneda) {
     try {
-        const res = await fetch(`https://mindicador.cl/api/${moneda}`)
+        const res = await fetch(`${url}/${moneda}`)
         const data = await res.json()  
         return data
     } catch (error) {
@@ -20,7 +45,7 @@ async function getMonedas(moneda) {
 
 $btnConvertir.addEventListener('click', async () => {
     const selectMoneda = document.getElementById('moneda').value
-    const valorMoneda = await getMonedas(selectMoneda)
+    const valorMoneda = await getMoneda(selectMoneda)
     console.log(valorMoneda)
     console.log(valorMoneda.codigo)
     const valorActual = valorMoneda.serie[0].valor
@@ -50,7 +75,7 @@ function getAndCreateDataToChart(moneda, nombreMoneda) {
 
     const datasets = [
         {
-            label: `Historial últimos 10 dias ${nombreMoneda.charAt(0).toUpperCase() + nombreMoneda.slice(1).toLowerCase()}`,
+            label: `Historial últimos 10 dias - ${nombreMoneda.charAt(0).toUpperCase() + nombreMoneda.slice(1).toLowerCase()}`,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: valores
