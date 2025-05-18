@@ -19,7 +19,7 @@ async function cargarOpcionesMonedas() {
             }
         }
     } catch (error) {
-        console.error('Error al obtener los datos:', error)
+        mostrarResultado('Error al cargar las opciones de monedas', error)
     }   
 }
 
@@ -35,7 +35,7 @@ async function getMoneda(moneda) {
         const data = await res.json()  
         return data
     } catch (error) {
-        console.error('Error al obtener los datos:', error) 
+        mostrarResultado('Error al obtener el valor de la moneda', error)
     }
 }
 
