@@ -19,7 +19,8 @@ async function cargarOpcionesMonedas() {
             }
         }
     } catch (error) {
-        mostrarResultado('Error al cargar las opciones de monedas', error)
+        mostrarResultado('Error al cargar las opciones de monedas')
+        console.error(error)
     }   
 }
 
@@ -35,15 +36,14 @@ async function getMoneda(moneda) {
         const data = await res.json()  
         return data
     } catch (error) {
-        mostrarResultado('Error al obtener el valor de la moneda', error)
+        mostrarResultado('Error al obtener el valor de la moneda')
+        console.error(error)
     }
 }
 
 $btnConvertir.addEventListener('click', async () => {
     const selectMoneda = document.getElementById('moneda').value
     const valorMoneda = await getMoneda(selectMoneda)
-    console.log(valorMoneda)
-    console.log(valorMoneda.codigo)
     const valorActual = valorMoneda.serie[0].valor
 
     if (isNaN($valorCLP.value) || $valorCLP.value <= 0) {
@@ -83,8 +83,6 @@ function getAndCreateDataToChart(moneda, nombreMoneda) {
 
 function renderGrafica(moneda, nombreMoneda) {
     const data = getAndCreateDataToChart(moneda, nombreMoneda)
-
-    console.log(data)
 
     const config = {
         type: 'line',
