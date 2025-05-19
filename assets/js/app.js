@@ -1,7 +1,8 @@
 const $btnConvertir = document.querySelector('#convertir')
 const $resultado = document.querySelector('#resultado')
-const $valorCLP = (document.getElementById('monto'))
+const $valorCLP = document.getElementById('monto')
 const $selectMoneda = document.querySelector('#moneda')
+
 const url = 'https://mindicador.cl/api'
 let chartInstance = null
 
